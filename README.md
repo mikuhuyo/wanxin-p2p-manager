@@ -70,3 +70,5 @@ npm run build:prod
 ## 启动错误
 
 无法获取`node-sass`: `npm install node-sass@4.9.0 --save`或者`cnpm install node-sass@4.9.0 --save`
+
+如果是MacBook上面的指令就不适用了, 得用`sudo npm install node-sass --unsafe-perm --save-dev`.
