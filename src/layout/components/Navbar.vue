@@ -9,7 +9,7 @@
         <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
         <span class="name">{{name}}</span>
         <span class="lab">|</span>
-        <span>退出</span>
+        <span @click="logout()">退出</span>
       </div>
     </div>
   </div>
