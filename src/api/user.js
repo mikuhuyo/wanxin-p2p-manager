@@ -10,7 +10,7 @@ export function login(data) {
 
 export function getInfo(token) {
   return request({
-    url: '/consumer/my/consumers',
+    url: '/uaa/oauth/check_token',
     method: 'get',
     params: { token }
   })
@@ -18,7 +18,7 @@ export function getInfo(token) {
 
 export function logout() {
   return request({
-    url: '/consumer/my/consumers',
+    url: '/uaa/oauth/logout',
     method: 'post'
   })
 }
