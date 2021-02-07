@@ -24,7 +24,6 @@ const actions = {
   // user login
   login({ commit }, userInfo) {
     const { username } = userInfo
-    // console.log(888, {...userInfo})
     // username: username.trim(), password: password
     return new Promise((resolve, reject) => {
       login({ ...userInfo, username: username.trim() }).then(response => {
@@ -41,17 +40,17 @@ const actions = {
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
       getInfo(state.token).then(response => {
-        const { result } = response
+        const { code } = response
 
-        if (!result) {
+        if (code !== 0) {
           reject('Verification failed, please Login again.')
         }
 
-        const { username, avatar } = result
+        const { user_name } = response
 
-        commit('SET_NAME', username)
+        commit('SET_NAME', user_name)
         commit('SET_AVATAR', 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif')
-        resolve(result)
+        resolve(response)
       }).catch(error => {
         reject(error)
       })
@@ -88,4 +87,3 @@ export default {
   mutations,
   actions
 }
-
